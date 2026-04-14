@@ -2,109 +2,110 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apply For Job</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Job Application</title>
     <style>
+        /* মূল পেজ সেটআপ */
         body, html {
             margin: 0;
             padding: 0;
+            width: 100%;
             height: 100%;
             overflow: hidden;
-            background-color: #f4f7f6;
-            font-family: 'Roboto', sans-serif;
+            background-color: #000; /* লোডিং এর সময় কালো দেখাবে */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
+        /* ব্যাকগ্রাউন্ড ইমেজ কন্টেইনার */
         .wrapper {
             position: relative;
             width: 100%;
-            max-width: 500px;
+            max-width: 500px; /* মোবাইলের জন্য স্ট্যান্ডার্ড সাইজ */
             height: 100vh;
             margin: 0 auto;
-            /* আপনার ছবির ডিরেক্ট লিঙ্ক এখানে দিন */
-            background: url('background.png') no-repeat center top;
-            background-size: cover;
-            overflow: hidden;
+            /* আপনার ইমেজের ডিরেক্ট লিঙ্ক এখানে বসান */
+            background: url('background.png') no-repeat center center;
+            background-size: 100% 100%; /* ছবি কাটবে না, পুরো স্ক্রিনে ফিট হবে */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end; /* বাটনগুলো নিচে রাখার জন্য */
+            align-items: center;
         }
 
-        /* Apply Now Button Design */
+        /* Apply Now বাটন ডিজাইন */
         .claim-btn {
-            position: absolute;
-            bottom: 20%;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
             width: 85%;
             height: 55px;
-            background: linear-gradient(180deg, #102a43, #004a7c);
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            background: linear-gradient(180deg, #102a43, #024376);
+            border: 2px solid rgba(255, 255, 255, 0.4);
             border-radius: 50px;
             color: white;
             font-size: 20px;
             font-weight: bold;
             text-transform: uppercase;
             text-decoration: none;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px; /* টাইমার থেকে দূরত্ব */
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
             transition: 0.3s;
-            cursor: pointer;
-            animation: pulse 2s infinite; /* বাটনটি হালকা নড়বে নজর কাড়ার জন্য */
+            z-index: 10;
+            animation: pulse 2s infinite;
         }
 
         @keyframes pulse {
-            0% { transform: translateX(-50%) scale(1); }
-            50% { transform: translateX(-50%) scale(1.03); }
-            100% { transform: translateX(-50%) scale(1); }
+            0% { transform: scale(1); }
+            50% { transform: scale(1.04); }
+            100% { transform: scale(1); }
         }
 
         .claim-btn:hover {
-            background: linear-gradient(180deg, #004a7c, #102a43);
+            background: linear-gradient(180deg, #024376, #102a43);
         }
 
-        /* Timer and Offer Box */
+        /* টাইমার বক্স ডিজাইন */
         .timer-info {
-            position: absolute;
-            bottom: 5%;
-            left: 50%;
-            transform: translateX(-50%);
             width: 90%;
-            background: rgba(16, 42, 67, 0.92);
-            padding: 15px;
-            border-radius: 15px;
+            background: rgba(16, 42, 67, 0.95); /* ডার্ক গ্লাস ইফেক্ট */
+            padding: 15px 10px;
+            border-radius: 20px 20px 0 0; /* নিচের দিকে ছবির সাথে মিশে থাকবে */
             border: 1px solid rgba(255, 255, 255, 0.1);
             text-align: center;
             color: white;
+            box-sizing: border-box;
         }
 
         .offer-txt {
-            font-size: 16px;
+            font-size: 15px;
             margin-bottom: 10px;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
 
         .dot {
             height: 10px;
             width: 10px;
-            background-color: #ff3e3e;
+            background-color: #ff3131;
             border-radius: 50%;
-            display: inline-block;
             animation: blink 1s infinite;
         }
 
         @keyframes blink {
             0% { opacity: 1; }
-            50% { opacity: 0.2; }
+            50% { opacity: 0.3; }
             100% { opacity: 1; }
         }
 
+        /* প্রগ্রেস বার */
         .indicator-bg {
-            width: 100%;
-            height: 10px;
-            background-color: rgba(255, 255, 255, 0.15);
+            width: 90%;
+            height: 8px;
+            background-color: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
+            margin: 0 auto;
             overflow: hidden;
         }
 
@@ -118,7 +119,7 @@
 
         #timer-display {
             color: #ffcc00;
-            font-weight: bold;
+            font-weight: 800;
         }
     </style>
 </head>
@@ -140,6 +141,7 @@
     </div>
 
     <script>
+        // টাইমার সেটআপ
         let time = 283; 
         const timerDisplay = document.getElementById('timer-display');
         const fill = document.getElementById('fill');
