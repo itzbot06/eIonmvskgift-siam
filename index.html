@@ -3,189 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apply For Job!</title>
+    <title>Apply For Job</title>
     <style>
         body, html {
-            margin: 0; padding: 0; height: 100%; overflow: hidden;
-            background-color: #000; font-family: 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            background-color: #f4f7f6;
+            font-family: 'Roboto', sans-serif;
         }
+
         .wrapper {
             position: relative;
             width: 100%;
             max-width: 500px;
             height: 100vh;
             margin: 0 auto;
-            background: url('background.png') no-repeat center top;
-            background-size: contain;
+            /* আপনার ছবির ডিরেক্ট লিঙ্ক এখানে দিন */
+            background: url(''background.png'') no-repeat center top;
+            background-size: cover;
             overflow: hidden;
         }
 
-        /* CLAIM NOW বাটন - পারফেক্ট সাইজ ও পজিশন */
-     .claim-btn {
-  position: absolute;
-  bottom: 28%;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 77%;
-  height: 54px;
-  background: linear-gradient(180deg, #2b2b2b, #121212); /* ডার্ক মেটালিক */
-  border: 1px solid #d4af37; /* ডার্ক গোল্ড বর্ডার */
-  border-radius: 50px;
-  text-decoration: none;
-  z-index: 1000;
-  -webkit-tap-highlight-color: transparent;
-  box-shadow: 0 0 10px rgba(212, 175, 55, 0.5); /* ডার্ক গোল্ড গ্লো */
-  animation: premium-glow 2.5s infinite; /* প্রিমিয়াম গ্লো এনিমেশন */
-}
-
-@keyframes premium-glow {
-  0% { box-shadow: 0 0 10px rgba(212, 175, 55, 0.3); }
-  50% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.6); }
-  100% { box-shadow: 0 0 10px rgba(212, 175, 55, 0.3); }
-}
-
-.btn-text {
-  color: #fff;
-  font-size: 18px; /* একটু ছোট ফন্ট সাইজ */
-  font-weight: 700; /* একটু কম ফন্ট ওয়েট */
-  text-transform: uppercase;
-  font-family: 'Montserrat', sans-serif; /* Montserrat ফন্ট */
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-}
-
-        /* উন্নত টাইমার বক্স - নিচের স্লটে সেট করা */
-.timer-box {
-    position: absolute;
-    bottom: 17%; /* আপনার নির্দেশ মতো ফাঁকা জায়গায় বসানোর জন্য */
-    width: 85%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(20, 20, 20, 0.9); /* প্রিমিয়াম ডার্ক ব্যাকগ্রাউন্ড */
-    padding: 12px;
-    border-radius: 15px;
-    border: 1px solid rgba(212, 175, 55, 0.3); /* হালকা গোল্ডেন বর্ডার */
-    z-index: 1000;
-    text-align: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-}
-
-.timer-info {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 10px;
-}
-
-/* ২য় ছবির মতো লাইভ ইন্ডিকেটর ডট */
-.live-dot {
-    width: 10px;
-    height: 10px;
-    background-color: #ff0000;
-    border-radius: 50%;
-    box-shadow: 0 0 10px #ff0000;
-    animation: blink 0.8s infinite;
-}
-
-@keyframes blink {
-    0% { opacity: 1; }
-    50% { opacity: 0.3; }
-    100% { opacity: 1; }
-}
-
-.timer-text {
-    color: #fff;
-    font-size: 15px;
-    font-weight: bold;
-    letter-spacing: 0.5px;
-}
-
-.time-highlight {
-    color: #ffcc00; /* সময়টাকে হাইলাইট করার জন্য সোনালী রঙ */
-}
-
-/* সময় শেষ হওয়ার ইন্ডিকেটর (Progress Bar) - ২য় ছবির মতো কালার */
-.indicator-bg {
-    width: 100%;
-    height: 8px; /* একটু মোটা করা হয়েছে ২য় ছবির মতো */
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.indicator-fill {
-    height: 100%;
-    width: 100%; /* এটি জাভাস্ক্রিপ্ট দিয়ে ধীরে ধীরে কমবে */
-    /* সবুজ -> হলুদ -> লাল গ্রাডিয়েন্ট ২য় ছবির স্টাইলে */
-    background: linear-gradient(90deg, #00ff00 0%, #ffcc00 50%, #ff0000 100%);
-    border-radius: 10px;
-    transition: width 1s linear;
-}
-
-        /* মানি রেইন ইফেক্ট */
-        .money {
-            position: absolute; font-size: 18px;
-            z-index: 10; pointer-events: none;
-            animation: fall linear forwards;
+        /* Apply Now Button Design */
+        .claim-btn {
+            position: absolute;
+            bottom: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 85%;
+            height: 55px;
+            background: linear-gradient(180deg, #102a43, #004a7c);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            transition: 0.3s;
+            cursor: pointer;
+            animation: pulse 2s infinite; /* বাটনটি হালকা নড়বে নজর কাড়ার জন্য */
         }
-        @keyframes fall {
-            0% { transform: translateY(-5vh) rotate(0deg); opacity: 0; }
-            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+
+        @keyframes pulse {
+            0% { transform: translateX(-50%) scale(1); }
+            50% { transform: translateX(-50%) scale(1.03); }
+            100% { transform: translateX(-50%) scale(1); }
+        }
+
+        .claim-btn:hover {
+            background: linear-gradient(180deg, #004a7c, #102a43);
+        }
+
+        /* Timer and Offer Box */
+        .timer-info {
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            background: rgba(16, 42, 67, 0.92);
+            padding: 15px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: white;
+        }
+
+        .offer-txt {
+            font-size: 16px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .dot {
+            height: 10px;
+            width: 10px;
+            background-color: #ff3e3e;
+            border-radius: 50%;
+            display: inline-block;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0.2; }
+            100% { opacity: 1; }
+        }
+
+        .indicator-bg {
+            width: 100%;
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .indicator-fill {
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(90deg, #00d2ff, #3a7bd5);
+            border-radius: 10px;
+            transition: width 1s linear;
+        }
+
+        #timer-display {
+            color: #ffcc00;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
-    <div class="wrapper" id="main">
+    <div class="wrapper">
         <a href="https://www.af9m8trk.com/RWG11EZJ/TKR128DB/?s1=Siam" class="claim-btn">
-            <span class="btn-text">APPLY NOW →</span>
+            Apply Now →
         </a>
 
-        <div class="timer-box">
-            <div class="timer-info">
-                <div class="live-dot"></div>
-                <div class="timer-text">Offer Expiring: <span id="time" style="color: #ffcc00;">05:00</span></div>
+        <div class="timer-info">
+            <div class="offer-txt">
+                <span class="dot"></span> Offer Expiring: <span id="timer-display">04:43</span>
             </div>
             <div class="indicator-bg">
-                <div class="indicator-fill" id="bar"></div>
+                <div class="indicator-fill" id="fill"></div>
             </div>
         </div>
     </div>
 
     <script>
-        function spawn() {
-            const icons = [''];
-            const m = document.createElement('div');
-            m.className = 'money';
-            m.innerText = icons[Math.floor(Math.random() * icons.length)];
-            m.style.left = Math.random() * 100 + '%';
-            m.style.animationDuration = (Math.random() * 2 + 3) + 's';
-            document.getElementById('main').appendChild(m);
-            setTimeout(() => m.remove(), 5000);
-        }
-        setInterval(spawn, 450);
+        let time = 283; 
+        const timerDisplay = document.getElementById('timer-display');
+        const fill = document.getElementById('fill');
+        const totalTime = 283; 
 
-        function startTimer(duration) {
-            var timer = duration, minutes, seconds;
-            var display = document.querySelector('#time');
-            var bar = document.querySelector('#bar');
+        const countdown = setInterval(() => {
+            let minutes = Math.floor(time / 60);
+            let seconds = time % 60;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+
+            timerDisplay.innerHTML = `${minutes}:${seconds}`;
             
-            setInterval(function () {
-                minutes = parseInt(timer / 60, 10);
-                seconds = parseInt(timer % 60, 10);
-                display.textContent = (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds < 10 ? "0" + seconds : seconds);
-                
-                var percent = (timer / duration) * 100;
-                bar.style.width = percent + "%";
+            let progressWidth = (time / totalTime) * 100;
+            fill.style.width = progressWidth + "%";
 
-                if (--timer < 0) { timer = duration; }
-            }, 1000);
-        }
-        window.onload = function () { startTimer(300); };
+            if (time <= 0) {
+                clearInterval(countdown);
+                timerDisplay.innerHTML = "00:00";
+            } else {
+                time--;
+            }
+        }, 1000);
     </script>
 </body>
 </html>
+
